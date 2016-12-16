@@ -4,7 +4,7 @@
   "description": "Cachable pubsub",
   "main": "index.js",
   "scripts": {
-    "test": "npm test"
+    "test": "true"
   },
   "repository": {
     "type": "git",
