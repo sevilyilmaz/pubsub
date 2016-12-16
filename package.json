@@ -1,0 +1,19 @@
+{
+  "name": "pubsub",
+  "version": "1.0.0",
+  "description": "Cachable pubsub",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sevilyilmaz/pubsub.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sevilyilmaz/pubsub/issues"
+  },
+  "homepage": "https://github.com/sevilyilmaz/pubsub#readme"
+}
