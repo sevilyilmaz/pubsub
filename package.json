@@ -2,7 +2,7 @@
   "name": "pubsub",
   "version": "1.0.0",
   "description": "Cachable pubsub",
-  "main": "index.js",
+  "main": "src/pubsub.js",
   "scripts": {
     "test": "true"
   },
