@@ -4,7 +4,7 @@
   "description": "Cachable pubsub",
   "main": "src/pubsub.js",
   "scripts": {
-    "test": "jasmine"
+    "test": "istanbul cover node_modules/jasmine/bin/jasmine.js"
   },
   "engines": {
     "node": "6"
@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/sevilyilmaz/pubsub#readme",
   "devDependencies": {
+    "istanbul": "^0.4.5",
     "jasmine": "^2.5.2"
   }
 }
