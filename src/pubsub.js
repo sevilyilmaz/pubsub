@@ -3,7 +3,7 @@
  * https://jsfiddle.net/sevilyilmaz/493xa2y7/
  */
 
-(function(window) {
+(function() {
     'use strict';
 
     var pubsub = {},
@@ -79,4 +79,4 @@
     } else {
         window.pubsub = getPubSub();
     }
-}(this));
+}());

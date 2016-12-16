@@ -4,7 +4,7 @@
   "description": "Cachable pubsub",
   "main": "src/pubsub.js",
   "scripts": {
-    "test": "true"
+    "test": "jasmine"
   },
   "engines": {
     "node": "6"
@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/sevilyilmaz/pubsub/issues"
   },
-  "homepage": "https://github.com/sevilyilmaz/pubsub#readme"
+  "homepage": "https://github.com/sevilyilmaz/pubsub#readme",
+  "devDependencies": {
+    "jasmine": "^2.5.2"
+  }
 }
