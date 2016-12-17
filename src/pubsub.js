@@ -9,12 +9,7 @@
     var pubsub = {},
         cache = {};
 
-    pubsub.pub = function(id) {
-        /**
-         * Arguments except the "id" as an array
-         */
-        var args = [].slice.call(arguments, 1);
-
+    pubsub.pub = function(id, ...args) {
         if (!cache[id]) {
             cache[id] = {
                 callbacks: [],
