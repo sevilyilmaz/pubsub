@@ -1,4 +1,4 @@
-var pubsub = require('../src/pubsub');
+const pubsub = require('../src/pubsub');
 
 describe('when the module init', () => {
     it('should be defined', () => {
@@ -19,7 +19,7 @@ describe('when the module init', () => {
 });
 
 describe('when something is published', () => {
-    var test;
+    let test;
 
     beforeEach(() => {
         pubsub.sub('lorem', (data) => { test = data; });
@@ -32,7 +32,7 @@ describe('when something is published', () => {
 });
 
 describe('when something is published before subscription', () => {
-    var test;
+    let test;
 
     beforeEach(() => {
         pubsub.pub('dolor', 'sit');
@@ -45,7 +45,7 @@ describe('when something is published before subscription', () => {
 });
 
 describe('when unsubscribe from a subscription', () => {
-    var test;
+    let test;
 
     beforeEach(() => {
         pubsub.pub('amet', 'sit');
@@ -56,5 +56,23 @@ describe('when unsubscribe from a subscription', () => {
 
     it('should not be accessible', () => {
         expect(test).toBe('sit');
+    });
+});
+
+describe('when unsubscribe from a particular subscription', () => {
+    let test, test2;
+    let testSub = data => { test = data; };
+    let testSub2 = data => { test2 = data; };
+
+    beforeEach(() => {
+        pubsub.sub('amet', testSub);
+        pubsub.sub('amet', testSub2);
+        pubsub.unsub('amet', testSub);
+        pubsub.pub('amet', 'sit');
+    });
+
+    it('should preserve other subscriptions', () => {
+        expect(test).not.toBeDefined();
+        expect(test2).toBe('sit');
     });
 });

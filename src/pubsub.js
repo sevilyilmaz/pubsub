@@ -6,7 +6,7 @@
 (function() {
     'use strict';
 
-    var pubsub = {},
+    let pubsub = {},
         cache = {};
 
     pubsub.pub = function(id, ...args) {
@@ -17,11 +17,8 @@
             };
         }
 
-        for (var i = 0; i < cache[id].callbacks.length; i++) {
-            /**
-             * apply method is used to pass an array
-             */
-            cache[id].callbacks[i].apply(null, args);
+        for (let i = 0; i < cache[id].callbacks.length; i++) {
+            cache[id].callbacks[i](...args);
         }
     };
 
@@ -35,13 +32,13 @@
             cache[id].callbacks.push(fn);
         }
 
-        for (var i = 0; i < cache[id].args.length; i++) {
-            fn.apply(null, cache[id].args[i]);
+        for (let i = 0; i < cache[id].args.length; i++) {
+            fn(...cache[id].args[i]);
         }
     };
 
     pubsub.unsub = function(id, fn) {
-        var index;
+        let index;
 
         if (!id) {
             return;
@@ -56,12 +53,12 @@
             index = cache[id].callbacks.indexOf(fn);
 
             if (index !== -1) {
-                cache[id].callbacks = cache[id].callbacks.slice(0, index).concat(cache[id].callbacks.slice(index + 1));
+                cache[id].callbacks.splice(index, 1);
             }
         }
     };
 
-    var getPubSub = function() {
+    let getPubSub = function() {
         return pubsub;
     };
 
@@ -74,4 +71,4 @@
     } else {
         window.pubsub = getPubSub();
     }
-}());
+})();
