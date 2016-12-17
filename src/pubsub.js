@@ -1,6 +1,5 @@
 /**
  * Pub/Sub library that keeps historical data
- * https://jsfiddle.net/sevilyilmaz/493xa2y7/
  */
 
 (function() {
