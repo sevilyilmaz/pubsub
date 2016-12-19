@@ -16,8 +16,8 @@
             };
         }
 
-        for (let i = 0; i < cache[id].callbacks.length; i++) {
-            cache[id].callbacks[i](...args);
+        for (let callback of cache[id].callbacks) {
+            callback(...args);
         }
     };
 
@@ -31,8 +31,8 @@
             cache[id].callbacks.push(fn);
         }
 
-        for (let i = 0; i < cache[id].args.length; i++) {
-            fn(...cache[id].args[i]);
+        for (let arg of cache[id].args) {
+            fn(...arg);
         }
     };
 
